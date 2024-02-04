@@ -15,7 +15,7 @@ export const RegisterSchema = z
         message: "Invalid contact number format",
       }
     ),
-    role: z.enum(["service_provider", "customer"]),
+    role: z.enum(["donator", "recipient"]),
     skills: z
       .array(
         z.object({
