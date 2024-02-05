@@ -27,7 +27,7 @@ export default function AuthenticationPage() {
         </Link>
         <div className="relative hidden h-full flex-col bg-muted p-10  dark:border-r lg:flex">
           <div className="absolute inset-0 ">
-            <Image src="login.svg" alt="login image" objectFit="contain" fill />
+            <Image src="share.jpg" alt="login image" objectFit="contain" fill />
           </div>
           <div className="relative z-20 flex items-center text-lg font-medium">
             <h1 className="text-2xl font-black">
