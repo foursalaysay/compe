@@ -1,8 +1,10 @@
 import { z } from "zod";
 
+// Name
+
 export const RegisterSchema = z
   .object({
-    fullName: z.string().min(3),
+    fullName : z.string().min(3),
     email: z.string().email(),
     address: z.string().min(3),
     description: z.string().min(1).optional(),
@@ -16,15 +18,6 @@ export const RegisterSchema = z
       }
     ),
     role: z.enum(["donator", "recipient"]),
-    skills: z
-      .array(
-        z.object({
-          label: z.string(),
-          value: z.string(),
-          category: z.string().optional(),
-        })
-      )
-      .optional(),
     password: z.string().min(6),
     confirmPassword: z.string().min(6),
   })
