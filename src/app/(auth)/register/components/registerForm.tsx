@@ -23,7 +23,6 @@ import { useState } from "react";
 
 import { Input } from "@/components/ui/input";
 import React from "react";
-import { Loader2Icon } from "lucide-react";
 
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -57,7 +56,7 @@ const RegisterForm = () => {
       email: "",
       address: "",
       contact: "",
-      role: "customer",
+      role: "recipient",
       password: "",
       skills: [],
       confirmPassword: "",
