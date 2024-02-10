@@ -1,5 +1,6 @@
 "use client";
-import { ScrollArea } from "@radix-ui/react-scroll-area";
+
+
 import Link from "next/link";
 import React from "react";
 import {
@@ -31,6 +32,8 @@ const DashIcon: React.FC<IDashProps> = ({
 }) => {
   return <Icon className={className} size={size} {...props} />;
 };
+
+
 
 const SidebarMenuItems: React.FC = () => {
   const pathname = usePathname();
