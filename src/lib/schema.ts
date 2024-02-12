@@ -27,16 +27,15 @@ type ITransaction = z.infer<typeof Transaction>;
 
 
 
-export const userSchema = z
-    .object({
-        userTypeName : z.string(),
-        userAddress : z.string(),
-        userContact : z.string(),
-        userRep : z.string(),
-        userRole : z.enum(["admin" || "company" || "organization"]),
-        userEmail : z.string().email(),
-        userPass : z.string()
-    })
+export const userSchema = z.object({
+    userTypeName: z.string(),
+    userAddress: z.string(),
+    userContact: z.string(),
+    userRep: z.string(),
+    userRole: z.enum(["admin", "company", "organization"]),
+    userEmail: z.string().email(),
+    userPass: z.string(),
+});
 
 export type userData = z.infer<typeof userSchema>
 
