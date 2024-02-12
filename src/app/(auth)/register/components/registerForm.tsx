@@ -36,6 +36,11 @@ import { MeMultiSeleect } from "@/components/me/me-multi-select";
 import { skills } from "../data/data";
 import { Textarea } from "@/components/ui/textarea";
 
+
+// USERSCHEMA
+
+import { userSchema, userData } from '@/lib/schema'
+
 //THIS SHOULD BE FETCH FROM ADMIN
 
 export async function getSkill() {
@@ -49,21 +54,23 @@ export async function getSkill() {
 
 const RegisterForm = () => {
   const router = useRouter();
-  const form = useForm<RegisterData>({
-    resolver: zodResolver(RegisterSchema),
+
+ 
+
+  const form = useForm<userData>({
+    resolver: zodResolver(userSchema),
     defaultValues: {
-      fullName: "",
-      email: "",
-      address: "",
-      contact: "",
-      role: "recipient",
+      userTypeName : "",
+      userContact : "",
+      userAddress : "",
+      userRep : "",
+      userRole : "organization",
       password: "",
-      skills: [],
       confirmPassword: "",
     },
   });
 
-  const onSubmit = async (data: RegisterData) => {
+  const onSubmit = async (data: userData) => {
     console.log({ data });
     const response = await fetch("/api/register", {
       method: "POST",
@@ -85,10 +92,10 @@ const RegisterForm = () => {
         <fieldset disabled={form.formState.isSubmitting} className="space-y-3">
           <FormField
             control={form.control}
-            name="fullName"
+            name="userTypeName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Full Name</FormLabel>
+                <FormLabel>Organization Name</FormLabel>
                 <FormControl>
                   <Input placeholder="Your Name" {...field} />
                 </FormControl>
