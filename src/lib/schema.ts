@@ -34,8 +34,13 @@ export const userSchema = z.object({
     userRep: z.string(),
     userRole: z.enum(["admin", "company", "organization"]),
     userEmail: z.string().email(),
-    userPass: z.string(),
-});
+    password: z.string().min(6),
+    confirmPassword: z.string().min(6),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords do not match",
+    path: ["confirmPassword"],
+  });
 
 export type userData = z.infer<typeof userSchema>
 
