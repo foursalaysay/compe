@@ -55,6 +55,7 @@ export async function getSkill() {
 const RegisterForm = () => {
   const router = useRouter();
 
+
  
 
   const form = useForm<userData>({
@@ -105,7 +106,7 @@ const RegisterForm = () => {
           />
           <FormField
             control={form.control}
-            name="email"
+            name="userContact"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Email</FormLabel>
@@ -118,7 +119,7 @@ const RegisterForm = () => {
           />
           <FormField
             control={form.control}
-            name="address"
+            name="userAddress"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Address</FormLabel>
@@ -134,7 +135,7 @@ const RegisterForm = () => {
           />
           <FormField
             control={form.control}
-            name="contact"
+            name="userRep"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Contact Number</FormLabel>
@@ -147,7 +148,7 @@ const RegisterForm = () => {
           />
           <FormField
             control={form.control}
-            name="role"
+            name="userRole"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>User Type</FormLabel>
@@ -172,7 +173,7 @@ const RegisterForm = () => {
             )}
           />
 
-          {form.getValues("role") === "service_provider" && (
+          {form.getValues("userRole") === "company" ? (
             <>
               <Separator />
               <FormField
@@ -212,6 +213,8 @@ const RegisterForm = () => {
               />
               <Separator />
             </>
+          ) : (
+            // THIS IS FOR 
           )}
 
           <FormField
