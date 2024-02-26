@@ -1,9 +1,10 @@
-import { Nav } from "./components/example-nav"
+import React from 'react'
+import SidebarMenuItems from './components/sidebar-menu-items'
 
-export default function AdminDashboard(){
-    return(
-        <div>
-            <Nav isCollapsed={false} links={[]} />
-        </div>
-    )
+export default function AdminDashboard() {
+  return (
+    <div>
+        <SidebarMenuItems />
+    </div>
+  )
 }
