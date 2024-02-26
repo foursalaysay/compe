@@ -1,5 +1,8 @@
 import React from 'react'
 
+import Link from 'next/link'
+
+import { cn } from 'clsx'
 export default function SideBar() {
 
     const getUserURL = ""
@@ -15,7 +18,10 @@ export default function SideBar() {
 
   return (
     <div className='w-60 h-screen '>
-        
+      <Link href="org-list">Organization List</Link>
+      <Link href="com-list">Company List</Link>
+      <Link href="tran-list">Transaction History</Link>
+
     </div>
   )
 }
