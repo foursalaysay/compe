@@ -1,9 +1,12 @@
-import { SessionProvider } from "next-auth/react";
-import Image from "next/image";
+'use client'
+
+import SidebarMenuItems from "./dashboard/admin-dashboard/components/sidebar-menu-items";
+import donationForm from "./dashboard/company-dashboard/components/donation-form";
 
 export default function Home() {
   return (
-    <div>
+    <div className="flex flex-row">
+      <SidebarMenuItems />
       
     </div>
   );
