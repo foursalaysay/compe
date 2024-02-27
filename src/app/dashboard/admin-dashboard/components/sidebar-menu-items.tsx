@@ -38,37 +38,33 @@ const DashIcon: React.FC<IDashProps> = ({
 const SidebarMenuItems: React.FC = () => {
   const pathname = usePathname();
   const session = useSession();
-  const { role } = session.data?.user || {};
+  
 
   const sidebarMenu = [
     {
-      groupName: "Working Space",
+      groupName: "Dashboard",
       items: [
         { name: "Overview", url: "overview", icon: Home },
-        // ...(role === "customer"
-        //   ? [{ name: "Providers", url: "providers", icon: Briefcase }]
-        //   : []),
-        { name: "Service Request", url: "service-request", icon: Inbox },
-        ...(role === "service_provider" || role === "admin"
-          ? [{ name: "Services", url: "services", icon: Briefcase }]
-          : []),
-        ...(role !== "admin"
-          ? [{ name: "Appointments", url: "appointments", icon: Calendar }]
-          : []),
-        ...(role === "admin"
-          ? [{ name: "Users", url: "users", icon: Users }]
-          : []),
-        { name: "Reports", url: "reports", icon: BadgeAlert },
       ],
     },
     {
-      groupName: "Personal",
-      items: [{ name: "Settings", url: "settings/account", icon: Settings }],
+      groupName: "Users",
+      items: [
+        { name: "Company List", url: "com-list", icon: Settings },
+        { name: "Organization List", url: "org-list", icon: Settings },
+      ],
     },
+    {
+      groupName: "Transactions",
+      items: [
+        { name: "Transaction History", url: "history-list", icon: Settings },
+        { name: "Reports", url: "report-list", icon: Settings },
+      ],
+    }
   ];
 
   return (
-    <div className="h-[calc(100vh-162px)] px-4">
+    <div className="h-[calc(100vh-162px)] px-4 border-1.5 border-black">
       <ul className="flex flex-col gap-4 ">
         {sidebarMenu.map((group, index) => (
           <li key={index} className="w-full ">
@@ -77,7 +73,7 @@ const SidebarMenuItems: React.FC = () => {
               <div className="flex flex-col gap-4">
                 {group.items.map((item, index2) => (
                   <Link
-                    href={`/dashboard/${item.url as string}`}
+                    href={`/dashboard/admin-dashboard/${item.url as string}`}
                     key={index2 + 1}
                     className={cn(
                       buttonVariants({

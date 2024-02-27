@@ -20,7 +20,9 @@ import {
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 
-export default function donationForm() {
+export default function DonationForm() {
+
+  
   return (
     <Card>
       <CardHeader>
