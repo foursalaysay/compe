@@ -1,4 +1,5 @@
 export interface CompanyData {
+    id : number,
     image: string;
     company_name: string;
     address: string;
@@ -8,6 +9,7 @@ export interface CompanyData {
   
   export const cUsers: CompanyData[] = [
     {
+      id : 1,
       image: "https://example.com/logo1.png",
       company_name: "ABC Corporation",
       address: "123 Main Street, Cityville, Country",
@@ -15,6 +17,7 @@ export interface CompanyData {
       contact_number: "+1 (555) 123-4567",
     },
     {
+      id : 2,
       image: "https://example.com/logo2.png",
       company_name: "XYZ Ltd.",
       address: "456 Oak Avenue, Townsville, Country",
@@ -22,6 +25,7 @@ export interface CompanyData {
       contact_number: "+1 (555) 987-6543",
     },
     {
+      id : 3,
       image: "https://example.com/logo3.png",
       company_name: "PQR Industries",
       address: "789 Elm Road, Villagetown, Country",
