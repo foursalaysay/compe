@@ -10,7 +10,7 @@ export interface CompanyData {
   export const cUsers: CompanyData[] = [
     {
       id : 1,
-      image: "https://example.com/logo1.png",
+      image: "https://source.unsplash.com/random/800x600",
       company_name: "ABC Corporation",
       address: "123 Main Street, Cityville, Country",
       representative: "John Doe",
@@ -18,7 +18,7 @@ export interface CompanyData {
     },
     {
       id : 2,
-      image: "https://example.com/logo2.png",
+      image: "https://source.unsplash.com/random/800x600",
       company_name: "XYZ Ltd.",
       address: "456 Oak Avenue, Townsville, Country",
       representative: "Jane Smith",
@@ -26,7 +26,15 @@ export interface CompanyData {
     },
     {
       id : 3,
-      image: "https://example.com/logo3.png",
+      image: "https://source.unsplash.com/random/800x600",
+      company_name: "PQR Industries",
+      address: "789 Elm Road, Villagetown, Country",
+      representative: "Sam Johnson",
+      contact_number: "+1 (555) 321-0987",
+    },
+    {
+      id : 4,
+      image: "https://source.unsplash.com/random/800x600",
       company_name: "PQR Industries",
       address: "789 Elm Road, Villagetown, Country",
       representative: "Sam Johnson",

@@ -18,7 +18,6 @@ export default function Home() {
           <SidebarMenuItems />
       </div>
       <Separator orientation="vertical"/>
-
       <>
         <CompanyList cDataUser={cUsers} />
       </>
