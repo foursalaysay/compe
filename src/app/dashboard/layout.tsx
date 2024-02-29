@@ -1,6 +1,7 @@
 import Navbar from "@/components/common/navbar";
 import Profile from "@/components/common/profile";
 import SidebarMenuItems from "@/components/common/sidebar-menu-items";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 import Link from "next/link";
 export default function RootLayout({

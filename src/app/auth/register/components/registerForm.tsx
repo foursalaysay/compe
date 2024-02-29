@@ -23,6 +23,7 @@ import { useState } from "react";
 
 import { Input } from "@/components/ui/input";
 import React from "react";
+import { Loader2Icon } from "lucide-react";
 
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -36,11 +37,6 @@ import { MeMultiSeleect } from "@/components/me/me-multi-select";
 import { skills } from "../data/data";
 import { Textarea } from "@/components/ui/textarea";
 
-
-// USERSCHEMA
-
-import { userSchema, userData } from '@/lib/schema'
-
 //THIS SHOULD BE FETCH FROM ADMIN
 
 export async function getSkill() {
@@ -52,20 +48,35 @@ export async function getSkill() {
   }
 }
 
+export const userSchema = z.object({
+  userTypeName: z.string(),
+  userAddress: z.string(),
+  userContact: z.string(),
+  userRep: z.string(),
+  userRole: z.enum(["admin", "company", "organization"]),
+  userEmail: z.string().email(),
+  password: z.string().min(6),
+  confirmPassword: z.string().min(6),
+})
+.refine((data) => data.password === data.confirmPassword, {
+  message: "Passwords do not match",
+  path: ["confirmPassword"],
+});
+
+export type userData = z.infer<typeof userSchema>
+
+
 const RegisterForm = () => {
   const router = useRouter();
-
-
- 
-
   const form = useForm<userData>({
     resolver: zodResolver(userSchema),
     defaultValues: {
-      userTypeName : "",
-      userContact : "",
-      userAddress : "",
-      userRep : "",
-      userRole : "organization",
+      userTypeName: "",
+      userAddress: "",
+      userContact: "",
+      userRep: "",
+      userRole: "organization",
+      userEmail : "",
       password: "",
       confirmPassword: "",
     },
@@ -96,7 +107,7 @@ const RegisterForm = () => {
             name="userTypeName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Organization Name</FormLabel>
+                <FormLabel>Full Name</FormLabel>
                 <FormControl>
                   <Input placeholder="Your Name" {...field} />
                 </FormControl>
@@ -172,51 +183,19 @@ const RegisterForm = () => {
               </FormItem>
             )}
           />
-
-          {form.getValues("userRole") === "company" ? (
-            <>
-              <Separator />
-              <FormField
-                control={form.control}
-                name="skills"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-base">Skills</FormLabel>
-                    <FormControl>
-                      <MeMultiSeleect
-                        options={skills}
-                        onChange={field.onChange}
-                      />
-                    </FormControl>
-                    <FormDescription>
-                      Select the skills you that you have.
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="description"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-base">Description</FormLabel>
-                    <FormControl>
-                      <Textarea {...field} />
-                    </FormControl>
-                    <FormDescription>
-                      Write something about yourself.
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <Separator />
-            </>
-          ) : (
-            // THIS IS FOR 
-          )}
-
+          <FormField
+            control={form.control}
+            name="userContact"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input placeholder="@email.com" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <FormField
             control={form.control}
             name="password"
