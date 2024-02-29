@@ -4,11 +4,11 @@
 import Link from "next/link";
 import React from "react";
 import {
-  BadgeAlert,
-  Briefcase,
-  Calendar,
+  Building2 ,
+  Warehouse , 
+  History ,
   Home,
-  Inbox,
+  MessageCircleWarning ,
   LucideIcon,
   Settings,
   Users,
@@ -44,21 +44,28 @@ const SidebarMenuItems: React.FC = () => {
     {
       groupName: "Dashboard",
       items: [
-        { name: "Overview", url: "overview", icon: Home },
+        { name: "Overview", url: "admin-dashboard", icon: Home },
       ],
     },
     {
+    groupName: "Verification",
+    items: [
+      { name: "Company Verification", url: "admin-dashboard", icon: Home },
+      { name: "Organization Verification", url: "admin-dashboard", icon: Home },
+    ],
+  },
+    {
       groupName: "Users",
       items: [
-        { name: "Company List", url: "com-list", icon: Settings },
-        { name: "Organization List", url: "org-list", icon: Settings },
+        { name: "Company List", url: "com-list", icon: Building2  },
+        { name: "Organization List", url: "org-list", icon: Warehouse  },
       ],
     },
     {
       groupName: "Transactions",
       items: [
-        { name: "Transaction History", url: "history-list", icon: Settings },
-        { name: "Reports", url: "report-list", icon: Settings },
+        { name: "Transaction History", url: "history-list", icon: History  },
+        { name: "Reports", url: "report-list", icon: MessageCircleWarning  },
       ],
     }
   ];

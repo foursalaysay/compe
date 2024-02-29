@@ -1,7 +1,6 @@
 import React from 'react'
 
 
-
 export default function SearchBar() {
 
     async function getCompany(){
@@ -13,11 +12,11 @@ export default function SearchBar() {
         }
     }
 
+
    
   return (
     <div className='w-calc[100vw - 225px)] h-20 border-b-gray-600 border-2'>
         <h1>Companies</h1>
-        
     </div>
   )
 }
