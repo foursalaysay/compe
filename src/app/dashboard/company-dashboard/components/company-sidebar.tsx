@@ -92,4 +92,4 @@ const CompanySidebar: React.FC = () => {
   );
 };
 
-export default SidebarMenuItems;
+export default CompanySidebar;

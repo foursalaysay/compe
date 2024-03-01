@@ -1,6 +1,24 @@
 import { z } from 'zod'
 
 
+export const CDonation = z
+.object({
+    donationId : z.string(),
+    product : z.array(
+        z.object({
+            pName : z.string(),
+            pQuantity : z.number(),
+            pExpiration : z.date()
+        })
+    ),
+    cName : z.string(),
+    cContact : z.string(),
+    cAddress : z.string(),
+    cRep : z.string(),
+    })
+
+export type ICDonation = z.infer<typeof CDonation>
+
 
 export const Transaction = z
     .object({
